@@ -12,13 +12,13 @@
             touch-action: manipulation;
         }
         .numpad-key {
-            height: 3rem;
+            height: 2.6rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             border: 1px solid #e2e8f0;
-            border-radius: 0.75rem;
+            border-radius: 0.6rem;
             background: white;
             transition: all 0.1s;
             cursor: pointer;
@@ -36,43 +36,43 @@
         }
     </style>
 </head>
-<body class="bg-slate-50 h-screen flex flex-col justify-between p-3 max-w-sm mx-auto overflow-hidden">
+<body class="bg-slate-50 h-screen flex flex-col justify-between p-2 max-w-sm mx-auto overflow-hidden">
 
     <!-- Header -->
-    <div class="text-center pt-1">
-        <h1 class="text-lg font-bold text-slate-900 leading-tight">Ubah Nama jadi Nomor Cantik</h1>
-        <p class="text-slate-500 text-[10px]">Konversi otomatis di posisi paling belakang</p>
+    <div class="text-center pt-0.5">
+        <h1 class="text-base font-bold text-slate-900 leading-tight">Ubah Nama jadi Nomor</h1>
+        <p class="text-slate-500 text-[9px]">Konversi otomatis di posisi paling belakang</p>
     </div>
 
     <!-- Configuration -->
-    <div>
-        <label class="block text-[9px] font-bold text-slate-400 uppercase tracking-widest text-center mb-1">Pilih Panjang Nomor</label>
-        <div class="flex justify-between gap-1.5">
-            <button onclick="setLength(10)" id="len-10" class="length-btn flex-1 py-1 text-xs font-bold border rounded-lg bg-white text-slate-600 transition-all">10</button>
-            <button onclick="setLength(11)" id="len-11" class="length-btn flex-1 py-1 text-xs font-bold border rounded-lg bg-white text-slate-600 transition-all">11</button>
-            <button onclick="setLength(12)" id="len-12" class="length-btn flex-1 py-1 text-xs font-bold border rounded-lg bg-white text-slate-600 transition-all">12</button>
-            <button onclick="setLength(13)" id="len-13" class="length-btn flex-1 py-1 text-xs font-bold border rounded-lg bg-white text-slate-600 transition-all">13</button>
+    <div class="-my-0.5">
+        <label class="block text-[8px] font-bold text-slate-400 uppercase tracking-widest text-center mb-0.5">Pilih Panjang Nomor</label>
+        <div class="flex justify-between gap-1">
+            <button onclick="setLength(10)" id="len-10" class="length-btn flex-1 py-0.5 text-xs font-bold border rounded-lg bg-white text-slate-600 transition-all">10</button>
+            <button onclick="setLength(11)" id="len-11" class="length-btn flex-1 py-0.5 text-xs font-bold border rounded-lg bg-white text-slate-600 transition-all">11</button>
+            <button onclick="setLength(12)" id="len-12" class="length-btn flex-1 py-0.5 text-xs font-bold border rounded-lg bg-white text-slate-600 transition-all">12</button>
+            <button onclick="setLength(13)" id="len-13" class="length-btn flex-1 py-0.5 text-xs font-bold border rounded-lg bg-white text-slate-600 transition-all">13</button>
         </div>
     </div>
 
     <!-- Display Section -->
-    <div class="bg-white rounded-2xl shadow-md p-3 border border-slate-100 my-1">
-        <div class="space-y-2">
+    <div class="bg-white rounded-xl shadow-md p-2 border border-slate-100 -my-0.5">
+        <div class="space-y-1">
             <!-- Visual Input Area -->
             <div class="relative">
                 <input type="text" id="userInput" 
-                       class="w-full px-2 py-1 text-xl font-mono text-center border-b border-slate-100 focus:border-blue-500 outline-none uppercase bg-transparent"
+                       class="w-full px-2 py-0.5 text-lg font-mono text-center border-b border-slate-100 focus:border-blue-500 outline-none uppercase bg-transparent"
                        placeholder="KETIK/KLIK"
                        oninput="convert()">
                 <button onclick="clearInput()" class="absolute right-1 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-red-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
                 </button>
             </div>
 
             <!-- Live Conversion Result -->
-            <div class="bg-slate-900 rounded-xl p-2.5 text-white text-center shadow-inner">
+            <div class="bg-slate-900 rounded-lg p-2 text-white text-center shadow-inner">
                 <p class="text-slate-400 text-[8px] uppercase tracking-widest mb-0.5 font-bold">Preview Nomor Kartu</p>
-                <div id="numericResult" class="text-xl font-bold tracking-tight font-mono leading-none">
+                <div id="numericResult" class="text-lg font-bold tracking-tight font-mono leading-none">
                     <span class="text-slate-500">08</span>xxxxxxxx
                 </div>
             </div>
@@ -80,35 +80,35 @@
     </div>
 
     <!-- Keypad (Numpad Compact) -->
-    <div class="bg-white rounded-2xl shadow-sm p-2 border border-slate-200">
-        <div class="grid grid-cols-3 gap-1.5">
-            <div onclick="pressKey('1')" class="numpad-key text-slate-300 italic"><span class="text-base font-bold">1</span><span class="text-[8px]">-</span></div>
-            <div onclick="pressKey('2')" class="numpad-key"><span class="text-base font-bold text-slate-800">2</span><span class="text-[8px] font-bold text-blue-600">ABC</span></div>
-            <div onclick="pressKey('3')" class="numpad-key"><span class="text-base font-bold text-slate-800">3</span><span class="text-[8px] font-bold text-blue-600">DEF</span></div>
+    <div class="bg-white rounded-xl shadow-sm p-1.5 border border-slate-200 -my-0.5">
+        <div class="grid grid-cols-3 gap-1">
+            <div onclick="pressKey('1')" class="numpad-key text-slate-300 italic"><span class="text-sm font-bold">1</span><span class="text-[7px]">-</span></div>
+            <div onclick="pressKey('2')" class="numpad-key"><span class="text-sm font-bold text-slate-800">2</span><span class="text-[7px] font-bold text-blue-600">ABC</span></div>
+            <div onclick="pressKey('3')" class="numpad-key"><span class="text-sm font-bold text-slate-800">3</span><span class="text-[7px] font-bold text-blue-600">DEF</span></div>
             
-            <div onclick="pressKey('4')" class="numpad-key"><span class="text-base font-bold text-slate-800">4</span><span class="text-[8px] font-bold text-blue-600">GHI</span></div>
-            <div onclick="pressKey('5')" class="numpad-key"><span class="text-base font-bold text-slate-800">5</span><span class="text-[8px] font-bold text-blue-600">JKL</span></div>
-            <div onclick="pressKey('6')" class="numpad-key"><span class="text-base font-bold text-slate-800">6</span><span class="text-[8px] font-bold text-blue-600">MNO</span></div>
+            <div onclick="pressKey('4')" class="numpad-key"><span class="text-sm font-bold text-slate-800">4</span><span class="text-[7px] font-bold text-blue-600">GHI</span></div>
+            <div onclick="pressKey('5')" class="numpad-key"><span class="text-sm font-bold text-slate-800">5</span><span class="text-[7px] font-bold text-blue-600">JKL</span></div>
+            <div onclick="pressKey('6')" class="numpad-key"><span class="text-sm font-bold text-slate-800">6</span><span class="text-[7px] font-bold text-blue-600">MNO</span></div>
             
-            <div onclick="pressKey('7')" class="numpad-key"><span class="text-base font-bold text-slate-800">7</span><span class="text-[8px] font-bold text-blue-600">PQRS</span></div>
-            <div onclick="pressKey('8')" class="numpad-key"><span class="text-base font-bold text-slate-800">8</span><span class="text-[8px] font-bold text-blue-600">TUV</span></div>
-            <div onclick="pressKey('9')" class="numpad-key"><span class="text-base font-bold text-slate-800">9</span><span class="text-[8px] font-bold text-blue-600">WXYZ</span></div>
+            <div onclick="pressKey('7')" class="numpad-key"><span class="text-sm font-bold text-slate-800">7</span><span class="text-[7px] font-bold text-blue-600">PQRS</span></div>
+            <div onclick="pressKey('8')" class="numpad-key"><span class="text-sm font-bold text-slate-800">8</span><span class="text-[7px] font-bold text-blue-600">TUV</span></div>
+            <div onclick="pressKey('9')" class="numpad-key"><span class="text-sm font-bold text-slate-800">9</span><span class="text-[7px] font-bold text-blue-600">WXYZ</span></div>
             
             <div class="numpad-key border-transparent opacity-0 pointer-events-none"></div>
-            <div onclick="pressKey('0')" class="numpad-key"><span class="text-base font-bold text-slate-800">0</span><span class="text-[8px] font-bold text-slate-400">+</span></div>
+            <div onclick="pressKey('0')" class="numpad-key"><span class="text-sm font-bold text-slate-800">0</span><span class="text-[7px] font-bold text-slate-400">+</span></div>
             <div onclick="backspace()" class="numpad-key text-red-400">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/><line x1="18" y1="9" x2="12" y2="15"/><line x1="12" y1="9" x2="18" y2="15"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/><line x1="18" y1="9" x2="12" y2="15"/><line x1="12" y1="9" x2="18" y2="15"/></svg>
             </div>
         </div>
     </div>
 
     <!-- Quick Actions -->
-    <div class="pb-1 text-center">
-        <div class="text-[8px] font-bold text-slate-400 uppercase tracking-widest mb-1">Contoh Cepat (Min. 3 Huruf)</div>
-        <div class="flex justify-center gap-1.5">
-            <button onclick="setInput('AHMAD')" class="px-2.5 py-1 bg-slate-200 text-slate-700 text-[10px] font-bold rounded-full hover:bg-blue-100 transition">AHMAD</button>
-            <button onclick="setInput('MOBIL')" class="px-2.5 py-1 bg-slate-200 text-slate-700 text-[10px] font-bold rounded-full hover:bg-emerald-100 transition">MOBIL</button>
-            <button onclick="setInput('JUICE')" class="px-2.5 py-1 bg-slate-200 text-slate-700 text-[10px] font-bold rounded-full hover:bg-orange-100 transition">JUICE</button>
+    <div class="pb-0.5 text-center">
+        <div class="text-[8px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Contoh Cepat (Min. 3 Huruf)</div>
+        <div class="flex justify-center gap-1">
+            <button onclick="setInput('AHMAD')" class="px-2 py-0.5 bg-slate-200 text-slate-700 text-[9px] font-bold rounded-full hover:bg-blue-100 transition">AHMAD</button>
+            <button onclick="setInput('MOBIL')" class="px-2 py-0.5 bg-slate-200 text-slate-700 text-[9px] font-bold rounded-full hover:bg-emerald-100 transition">MOBIL</button>
+            <button onclick="setInput('JUICE')" class="px-2 py-0.5 bg-slate-200 text-slate-700 text-[9px] font-bold rounded-full hover:bg-orange-100 transition">JUICE</button>
         </div>
     </div>
 
