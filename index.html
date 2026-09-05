@@ -12,13 +12,13 @@
             touch-action: manipulation;
         }
         .numpad-key {
-            height: 3.2rem;
+            height: 2.5rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             border: 1px solid #cbd5e1;
-            border-radius: 0.75rem;
+            border-radius: 0.5rem;
             background: white;
             transition: all 0.1s;
             cursor: pointer;
@@ -38,80 +38,80 @@
         }
     </style>
 </head>
-<body class="bg-slate-100 h-screen flex flex-col justify-between p-3 max-w-md mx-auto overflow-hidden">
+<body class="bg-slate-100 h-screen flex flex-col justify-between p-2 max-w-sm mx-auto overflow-hidden">
 
-    <!-- Header Section -->
-    <div class="text-center pt-1">
-        <h1 class="text-lg font-extrabold text-slate-900 leading-tight tracking-tight">Ubah Nama Jadi Nomor HP</h1>
-        <p class="text-slate-600 text-[11px] font-medium mt-0.5">Posisi otomatis di karakter paling belakang</p>
-    </div>
-
-    <!-- Main Container -->
-    <div class="flex flex-col gap-2 my-auto">
+    <!-- Header & Main Container Merapat -->
+    <div class="flex flex-col gap-1.5 my-auto">
         
+        <!-- Header Section -->
+        <div class="text-center">
+            <h1 class="text-base font-extrabold text-slate-900 leading-tight tracking-tight">Ubah Nama Jadi Nomor HP</h1>
+            <p class="text-slate-600 text-[10px] font-medium">Posisi otomatis di karakter paling belakang</p>
+        </div>
+
         <!-- Block 1: Length Selector -->
-        <div class="bg-white rounded-xl p-2 shadow-sm border border-slate-200">
-            <label class="block text-[11px] font-bold text-slate-500 uppercase tracking-wider text-center mb-1">Pilih Panjang Nomor</label>
-            <div class="flex justify-between gap-1.5">
-                <button onclick="setLength(10)" id="len-10" class="length-btn flex-1 py-1 text-xs font-bold border rounded-lg bg-slate-50 text-slate-700 transition-all">10</button>
-                <button onclick="setLength(11)" id="len-11" class="length-btn flex-1 py-1 text-xs font-bold border rounded-lg bg-slate-50 text-slate-700 transition-all">11</button>
-                <button onclick="setLength(12)" id="len-12" class="length-btn flex-1 py-1 text-xs font-bold border rounded-lg bg-slate-50 text-slate-700 transition-all">12</button>
-                <button onclick="setLength(13)" id="len-13" class="length-btn flex-1 py-1 text-xs font-bold border rounded-lg bg-slate-50 text-slate-700 transition-all">13</button>
+        <div class="bg-white rounded-lg p-1.5 shadow-sm border border-slate-200">
+            <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider text-center mb-1">Pilih Panjang Nomor</label>
+            <div class="flex justify-between gap-1">
+                <button onclick="setLength(10)" id="len-10" class="length-btn flex-1 py-1 text-xs font-bold border rounded bg-slate-50 text-slate-700 transition-all">10</button>
+                <button onclick="setLength(11)" id="len-11" class="length-btn flex-1 py-1 text-xs font-bold border rounded bg-slate-50 text-slate-700 transition-all">11</button>
+                <button onclick="setLength(12)" id="len-12" class="length-btn flex-1 py-1 text-xs font-bold border rounded bg-slate-50 text-slate-700 transition-all">12</button>
+                <button onclick="setLength(13)" id="len-13" class="length-btn flex-1 py-1 text-xs font-bold border rounded bg-slate-50 text-slate-700 transition-all">13</button>
             </div>
         </div>
 
         <!-- Block 2: Visual Input & Result Preview -->
-        <div class="bg-white rounded-xl shadow-md p-2.5 border border-slate-200 flex flex-col gap-2">
+        <div class="bg-white rounded-lg shadow-md p-1.5 border border-slate-200 flex flex-col gap-1">
             <!-- Input Field -->
             <div class="relative">
                 <input type="text" id="userInput" 
-                       class="w-full pl-3 pr-8 py-1.5 text-xl font-bold font-mono text-center border-b-2 border-slate-200 focus:border-blue-600 outline-none uppercase bg-slate-50 rounded-t-lg tracking-wider"
+                       class="w-full pl-2 pr-7 py-1 text-lg font-bold font-mono text-center border-b-2 border-slate-200 focus:border-blue-600 outline-none uppercase bg-slate-50 rounded-t tracking-wider"
                        placeholder="KETIK / KLIK"
                        oninput="convert()">
-                <button onclick="clearInput()" class="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-red-500 active:scale-90 transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                <button onclick="clearInput()" class="absolute right-1.5 top-1/2 -translate-y-1/2 p-0.5 text-slate-400 hover:text-red-500 active:scale-90 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
                 </button>
             </div>
 
             <!-- Result Card -->
-            <div class="bg-slate-900 rounded-lg p-2 text-white text-center shadow-inner border border-slate-800">
-                <p class="text-slate-400 text-[10px] uppercase tracking-widest mb-0.5 font-bold">Hasil Nomor Perdana</p>
-                <div id="numericResult" class="text-xl font-black tracking-tight font-mono leading-none text-blue-400">
+            <div class="bg-slate-900 rounded p-1.5 text-white text-center shadow-inner border border-slate-800">
+                <p class="text-slate-400 text-[9px] uppercase tracking-widest mb-0.5 font-bold">Hasil Nomor Perdana</p>
+                <div id="numericResult" class="text-lg font-black tracking-tight font-mono leading-none text-blue-400">
                     <span class="text-slate-400">08</span>xxxxxxxx
                 </div>
             </div>
         </div>
 
         <!-- Block 3: Interactive Numpad -->
-        <div class="bg-white rounded-xl shadow-sm p-2 border border-slate-200">
-            <div class="grid grid-cols-3 gap-1.5">
-                <div onclick="pressKey('1')" class="numpad-key text-slate-300 italic"><span class="text-lg font-bold">1</span><span class="text-[9px] font-bold">-</span></div>
-                <div onclick="pressKey('2')" class="numpad-key"><span class="text-lg font-bold text-slate-900">2</span><span class="text-[9px] font-bold text-blue-600">ABC</span></div>
-                <div onclick="pressKey('3')" class="numpad-key"><span class="text-lg font-bold text-slate-900">3</span><span class="text-[9px] font-bold text-blue-600">DEF</span></div>
+        <div class="bg-white rounded-lg shadow-sm p-1.5 border border-slate-200">
+            <div class="grid grid-cols-3 gap-1">
+                <div onclick="pressKey('1')" class="numpad-key text-slate-300 italic"><span class="text-base font-bold">1</span><span class="text-[8px] font-bold">-</span></div>
+                <div onclick="pressKey('2')" class="numpad-key"><span class="text-base font-bold text-slate-900">2</span><span class="text-[8px] font-bold text-blue-600">ABC</span></div>
+                <div onclick="pressKey('3')" class="numpad-key"><span class="text-base font-bold text-slate-900">3</span><span class="text-[8px] font-bold text-blue-600">DEF</span></div>
                 
-                <div onclick="pressKey('4')" class="numpad-key"><span class="text-lg font-bold text-slate-900">4</span><span class="text-[9px] font-bold text-blue-600">GHI</span></div>
-                <div onclick="pressKey('5')" class="numpad-key"><span class="text-lg font-bold text-slate-900">5</span><span class="text-[9px] font-bold text-blue-600">JKL</span></div>
-                <div onclick="pressKey('6')" class="numpad-key"><span class="text-lg font-bold text-slate-900">6</span><span class="text-[9px] font-bold text-blue-600">MNO</span></div>
+                <div onclick="pressKey('4')" class="numpad-key"><span class="text-base font-bold text-slate-900">4</span><span class="text-[8px] font-bold text-blue-600">GHI</span></div>
+                <div onclick="pressKey('5')" class="numpad-key"><span class="text-base font-bold text-slate-900">5</span><span class="text-[8px] font-bold text-blue-600">JKL</span></div>
+                <div onclick="pressKey('6')" class="numpad-key"><span class="text-base font-bold text-slate-900">6</span><span class="text-[8px] font-bold text-blue-600">MNO</span></div>
                 
-                <div onclick="pressKey('7')" class="numpad-key"><span class="text-lg font-bold text-slate-900">7</span><span class="text-[9px] font-bold text-blue-600">PQRS</span></div>
-                <div onclick="pressKey('8')" class="numpad-key"><span class="text-lg font-bold text-slate-900">8</span><span class="text-[9px] font-bold text-blue-600">TUV</span></div>
-                <div onclick="pressKey('9')" class="numpad-key"><span class="text-lg font-bold text-slate-900">9</span><span class="text-[9px] font-bold text-blue-600">WXYZ</span></div>
+                <div onclick="pressKey('7')" class="numpad-key"><span class="text-base font-bold text-slate-900">7</span><span class="text-[8px] font-bold text-blue-600">PQRS</span></div>
+                <div onclick="pressKey('8')" class="numpad-key"><span class="text-base font-bold text-slate-900">8</span><span class="text-[8px] font-bold text-blue-600">TUV</span></div>
+                <div onclick="pressKey('9')" class="numpad-key"><span class="text-base font-bold text-slate-900">9</span><span class="text-[8px] font-bold text-blue-600">WXYZ</span></div>
                 
                 <div class="numpad-key border-transparent opacity-0 pointer-events-none"></div>
-                <div onclick="pressKey('0')" class="numpad-key"><span class="text-lg font-bold text-slate-900">0</span><span class="text-[9px] font-bold text-slate-400">+</span></div>
+                <div onclick="pressKey('0')" class="numpad-key"><span class="text-base font-bold text-slate-900">0</span><span class="text-[8px] font-bold text-slate-400">+</span></div>
                 <div onclick="backspace()" class="numpad-key text-red-500 bg-red-50/50 border-red-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/><line x1="18" y1="9" x2="12" y2="15"/><line x1="12" y1="9" x2="18" y2="15"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/><line x1="18" y1="9" x2="12" y2="15"/><line x1="12" y1="9" x2="18" y2="15"/></svg>
                 </div>
             </div>
         </div>
 
         <!-- Block 4: Quick Examples -->
-        <div class="bg-white rounded-xl shadow-sm p-2 border border-slate-200 text-center">
-            <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">Contoh Cepat (Min. 3 Huruf)</div>
-            <div class="flex justify-center gap-1.5">
-                <button onclick="setInput('AHMAD')" class="flex-1 py-1.5 bg-blue-50 text-blue-700 border border-blue-200 text-xs font-extrabold rounded-lg hover:bg-blue-100 active:scale-95 transition">AHMAD</button>
-                <button onclick="setInput('ZAWAWI')" class="flex-1 py-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-extrabold rounded-lg hover:bg-emerald-100 active:scale-95 transition">ZAWAWI</button>
-                <button onclick="setInput('CREATIVE')" class="flex-1 py-1.5 bg-amber-50 text-amber-700 border border-amber-200 text-xs font-extrabold rounded-lg hover:bg-amber-100 active:scale-95 transition">CREATIVE</button>
+        <div class="bg-white rounded-lg shadow-sm p-1.5 border border-slate-200 text-center">
+            <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">Contoh Cepat (Min. 3 Huruf)</div>
+            <div class="flex justify-center gap-1">
+                <button onclick="setInput('AHMAD')" class="flex-1 py-1 bg-blue-50 text-blue-700 border border-blue-200 text-[11px] font-extrabold rounded hover:bg-blue-100 active:scale-95 transition">AHMAD</button>
+                <button onclick="setInput('ZAWAWI')" class="flex-1 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200 text-[11px] font-extrabold rounded hover:bg-emerald-100 active:scale-95 transition">ZAWAWI</button>
+                <button onclick="setInput('CREATIVE')" class="flex-1 py-1 bg-amber-50 text-amber-700 border border-amber-200 text-[11px] font-extrabold rounded hover:bg-amber-100 active:scale-95 transition">CREATIVE</button>
             </div>
         </div>
 
@@ -120,8 +120,8 @@
     <!-- Footer CTA Button -->
     <div class="pb-1">
         <a id="ctaWa" href="https://wa.me/6281297929294?text=Saya+mau+pesan+NomorCantik+dengan+nama+" target="_blank" 
-           class="flex items-center justify-center gap-2 w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 active:scale-98 text-white font-extrabold text-sm rounded-xl shadow-md transition-all">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+           class="flex items-center justify-center gap-2 w-full py-2 bg-emerald-600 hover:bg-emerald-700 active:scale-98 text-white font-extrabold text-xs rounded-lg shadow transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
             Pesan Nomor Cantik
         </a>
     </div>
@@ -203,7 +203,6 @@
             finalDisplay += displayDigits;
             document.getElementById('numericResult').innerHTML = finalDisplay;
 
-            // Update Link WhatsApp Dinamis sesuai Teks
             const ctaWa = document.getElementById('ctaWa');
             ctaWa.href = baseUrlWa + encodeURIComponent(rawInput);
         }
