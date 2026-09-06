@@ -23,7 +23,7 @@
     }
   </style>
 </head>
-<body class="bg-slate-50 h-screen flex flex-col justify-between p-3 max-w-sm mx-auto overflow-hidden">
+<body class="bg-slate-50 h-screen flex flex-col justify-between p-3 max-w-sm ">
 
   <!-- Header -->
   <div class="text-center py-2 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg shadow-md">
@@ -165,8 +165,9 @@
   </script>
 
 
-<!-- Footer CTA Button (Fixed Bottom) -->
-<div class="fixed bottom-0 left-0 right-0 p-3 bg-slate-50">
+
+<!-- Footer CTA Button -->
+<div class="mt-4"> <!-- ubah jarak dengan mt-4 atau lebih -->
   <a id="ctaWa" 
      href="https://api.whatsapp.com/send/?phone=6281297929294&text=Saya+mau+pesan+NomorCantik+dengan+nama+" 
      target="_blank"
@@ -178,6 +179,7 @@
   </a>
 </div>
 
+
 <script>
   function updateCTA() {
     const inputText = document.getElementById('userInput').value.trim().toUpperCase();
@@ -185,6 +187,8 @@
 
     const baseUrl = "https://api.whatsapp.com/send/?phone=6281297929294&text=";
     const pesanAwal = "Saya mau pesan NomorCantik dengan nama ";
+
+    // Gabungkan nama + hasil konversi
     const pesan = `${pesanAwal}${inputText} (Nomor: ${resultText})`;
 
     const fullUrl = baseUrl + encodeURIComponent(pesan) + "&type=phone_number&app_absent=0";
@@ -197,8 +201,6 @@
   // Jalankan sekali saat halaman load
   window.onload = updateCTA;
 </script>
-
-
 
 
 </body>
