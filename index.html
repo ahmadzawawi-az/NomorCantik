@@ -186,20 +186,16 @@
 
     const baseUrl = "https://api.whatsapp.com/send/?phone=6281297929294&text=";
     const pesanAwal = "Saya mau pesan NomorCantik dengan nama ";
-
-    // Gabungkan nama + hasil konversi
     const pesan = `${pesanAwal}${inputText} (Nomor: ${resultText})`;
 
     const fullUrl = baseUrl + encodeURIComponent(pesan) + "&type=phone_number&app_absent=0";
     document.getElementById('ctaWa').href = fullUrl;
   }
 
-  // Update CTA setiap kali input berubah
   document.getElementById('userInput').addEventListener('input', updateCTA);
-
-  // Jalankan sekali saat halaman load
   window.onload = updateCTA;
 </script>
+
 
 
 </body>
