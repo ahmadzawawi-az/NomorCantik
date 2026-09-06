@@ -165,8 +165,8 @@
   </script>
 
 
-<!-- Footer CTA Button -->
-<div class="mt-4"> <!-- ubah jarak dengan mt-4 atau lebih -->
+<!-- Footer CTA Button (Fixed Bottom) -->
+<div class="fixed bottom-0 left-0 right-0 p-3 bg-slate-50">
   <a id="ctaWa" 
      href="https://api.whatsapp.com/send/?phone=6281297929294&text=Saya+mau+pesan+NomorCantik+dengan+nama+" 
      target="_blank"
@@ -177,7 +177,6 @@
     Pesan Nomor Cantik
   </a>
 </div>
-
 
 <script>
   function updateCTA() {
@@ -192,9 +191,13 @@
     document.getElementById('ctaWa').href = fullUrl;
   }
 
+  // Update CTA setiap kali input berubah
   document.getElementById('userInput').addEventListener('input', updateCTA);
+
+  // Jalankan sekali saat halaman load
   window.onload = updateCTA;
 </script>
+
 
 
 
